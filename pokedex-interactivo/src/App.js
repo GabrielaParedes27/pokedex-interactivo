@@ -3,17 +3,25 @@ import Navbar from './components/Navbar';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import Pokedex from './components/Pokedex';
-import { getPokemons } from './Api';
+import { getPokemonData, getPokemons } from './Api';
 
 const { useState, useEffect } = React;
 
 function App() {
-  const [pokemons, setPokemons] = useState([])
+  const [pokemons, setPokemons] = useState([]);
+  const [page, setPage] = useState();
+  const [total, setTotal] = useState();
+  const [loading, setLoading] = useState(true);
 
   const fetchPokemons = async () => {
     try {
       const data = await getPokemons();
-      setPokemons(data.results);
+      const promises = data.results.map(async (pokemon) => {
+        return await getPokemonData(pokemon.url)
+      })
+      const results = await Promise.all(promises);
+      setPokemons(results);
+      setLoading(false);
     } catch(err){}
   }
 
@@ -27,7 +35,10 @@ function App() {
       <Navbar />
     <div className="App">
      <SearchBar />
+     { loading ?
+     <div>cargando pokemones... </div>:
      <Pokedex pokemons={pokemons}/>
+    }
     </div>
     </div>
   );
