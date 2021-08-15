@@ -15,19 +15,23 @@ function App() {
 
   const fetchPokemons = async () => {
     try {
-      const data = await getPokemons();
+      setLoading(true);
+      const data = await getPokemons(9, 9 * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url)
       })
       const results = await Promise.all(promises);
       setPokemons(results);
       setLoading(false);
+      setTotal(Math.ceil(data.count / 9));
     } catch(err){}
   }
 
   useEffect(() => {
     fetchPokemons();
-  }, []);
+  }, [page]);
+
+
 
 
   return (
@@ -35,10 +39,14 @@ function App() {
       <Navbar />
     <div className="App">
      <SearchBar />
-     { loading ?
-     <div>cargando pokemones... </div>:
-     <Pokedex pokemons={pokemons}/>
-    }
+     <Pokedex 
+     loading={loading}
+     pokemons={pokemons}
+     page={page}
+     setPage={setPage}
+     total={total}
+     />
+    
     </div>
     </div>
   );
