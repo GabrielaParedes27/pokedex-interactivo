@@ -36,7 +36,7 @@ export default function App() {
 
   const loadFavoritePokemons = () => {
     const pokemons =
-      JSON.parse(window.localStorage.getItem(localStorageKey)) || [];
+    JSON.parse(window.localStorage.getItem(localStorageKey)) || [];
     setFavorites(pokemons);
   };
 
