@@ -1,5 +1,13 @@
 * {
   margin: 0px;
+  font-family: "Rubik", sans-serif;
+}
+
+.App {
+  background-image: url(./pokemon-minimalist.png);
+  background-size: 24%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
 }
 
 nav {
@@ -23,15 +31,18 @@ nav {
   align-items: stretch;
 }
 
+h1 {
+  color: #b1b1b1;
+}
+
 .searchbar {
-  background: white;
   padding-right: 20px;
   flex: 1;
 }
 
 .searchbar input {
   padding: 10px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 2px rgba(251, 223, 111, 0.5);
   border-radius: 3px;
   border: none;
   width: 100%;
@@ -42,7 +53,7 @@ nav {
 }
 
 .searchbar-btn button {
-  background-color: #363636;
+  background-color: #a3d99b;
   border: none;
   border-radius: 10px;
   height: 100%;
@@ -63,7 +74,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 18px;
-  padding: 0px 10px 20px 10px;
+  padding: 0px 10px 110px 10px;
 }
 
 @media screen and (max-width: 992px) {
@@ -80,7 +91,7 @@ nav {
 
 .pokemon-card {
   display: flex;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px rgba(163, 217, 155, 0.5);
   border-radius: 3px;
 }
 
@@ -100,6 +111,11 @@ nav {
 .pokemon-type-text {
   margin-right: 10px;
   text-transform: capitalize;
+  border: 1px solid #ffba6c;
+  border-radius: 10px;
+  padding: 2px 5px;
+  background-color: #ffba6c;
+  color: #f0f0f0;
 }
 
 .card-body {
@@ -134,17 +150,13 @@ nav {
   align-items: center;
 }
 
-.App {
-  font-family: sans-serif;
-}
-
 .icon {
   width: 28px;
   height: 28px;
 }
 
 .pagination-btn {
-  background-color: black;
+  background-color: #82d9d5;
   border: none;
   border-radius: 50%;
   width: 32px;
