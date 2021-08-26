@@ -80,12 +80,26 @@ h1 {
 @media screen and (max-width: 992px) {
   .pokedex-grid {
     grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10px 150px 10px;
+  }
+  .App {
+    background-image: url(./pokemon-minimalist.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: bottom center;
   }
 }
 
 @media screen and (max-width: 600px) {
   .pokedex-grid {
     grid-template-columns: repeat(1, 1fr);
+    padding: 0px 10px 80px 10px;
+  }
+  .App {
+    background-image: url(./pokemon-minimalist.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: bottom center;
   }
 }
 
